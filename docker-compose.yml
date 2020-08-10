@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+    container_name: sql-database-test
+    build:
+      context: ./Db
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+    - "1434:1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Aforo255#2019
+    networks:
+    - aforo255-test
+  
+networks:
+  aforo255-test:
+    name: aforo255-test
