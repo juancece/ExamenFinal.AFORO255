@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AFORO255.MS.TEST.Invoice.Repository;
 using AFORO255.MS.TEST.Invoice.Repository.Data;
+using AFORO255.MS.TEST.Invoice.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,7 @@ namespace AFORO255.MS.TEST.Invoice
             });
 
             services.AddScoped<IRepositoryInvoice, RepositoryInvoice>();
+            services.AddScoped<IServiceInvoice, ServiceInvoice>();
             services.AddScoped<IContextDatabase, ContextDatabase>();
         }
 

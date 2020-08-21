@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AFORO255.MS.TEST.Pay.Repository;
+using AFORO255.MS.TEST.Pay.Repository.Data;
+using AFORO255.MS.TEST.Pay.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +30,14 @@ namespace AFORO255.MS.TEST.Pay
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<ContextDatabase>(options =>
+            {
+                options.UseMySQL(Configuration["mysql:cn"]);
+            });
+
+            services.AddScoped<IRepositoryPay, RepositoryPay>();
+            services.AddScoped<IServicePay, ServicePay>();
+            services.AddScoped<IContextDatabase, ContextDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
