@@ -28,7 +28,7 @@ namespace AFORO255.MS.TEST.Pay.Controllers
         {
             var operation = new Operation
             {
-                Id_Invoice = payDto.IdInvoice,
+                IdInvoice = payDto.IdInvoice,
                 Amount = payDto.Amount,
                 Date = DateTime.Now
             };

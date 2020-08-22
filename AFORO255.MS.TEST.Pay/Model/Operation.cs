@@ -7,10 +7,10 @@ namespace AFORO255.MS.TEST.Pay.Model
     public class Operation
     {
         [Key]
-        [Column("id_operation")]
-        public int Id_Operation { get; set; }
-        [Column("id_invoice")]
-        public int Id_Invoice { get; set; }
+        [Column("idoperation")]
+        public int IdOperation { get; set; }
+        [Column("idinvoice")]
+        public int IdInvoice { get; set; }
         [Column("amount")]
         public decimal Amount { get; set; }
         [Column("date")]
