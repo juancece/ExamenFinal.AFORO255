@@ -17,5 +17,14 @@ namespace AFORO255.MS.TEST.Invoice.Repository
         {
             return _contextDatabase.Invoices.ToList();
         }
+
+        public bool Pay(int idInvoice)
+        {
+            Model.Invoice invoice = _contextDatabase.Invoices.Find(idInvoice);
+            invoice.State = 1;
+            _contextDatabase.Invoices.Update(invoice);
+            _contextDatabase.SaveChanges();
+            return true;
+        }
     }
 }

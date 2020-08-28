@@ -16,5 +16,10 @@ namespace AFORO255.MS.TEST.Invoice.Service
         {
             return _repositoryInvoice.GetAll();
         }
+
+        public bool Pay(int idInvoice)
+        {
+            return _repositoryInvoice.Pay(idInvoice);
+        }
     }
 }
