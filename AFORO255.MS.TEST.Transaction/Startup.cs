@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AFORO255.MS.TEST.Transaction.RabbitMq.EventHandlers;
+using AFORO255.MS.TEST.Transaction.RabbitMq.Events;
 using AFORO255.MS.TEST.Transaction.Repository;
 using AFORO255.MS.TEST.Transaction.Service;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +15,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MS.AFORO255.Cross.RabbitMQ.Src;
+using MS.AFORO255.Cross.RabbitMQ.Src.Bus;
 
 namespace AFORO255.MS.TEST.Transaction
 {
@@ -30,6 +35,13 @@ namespace AFORO255.MS.TEST.Transaction
             services.AddControllers();
             services.AddScoped<IRepositoryTransaction, RepositoryTransaction>();
             services.AddScoped<IServiceTransaction, ServiceTransaction>();
+            
+            /* Start RabbitMQ */
+            services.AddMediatR(typeof(Startup));
+            services.AddRabbitMQ();
+            services.AddTransient<TransactionEventHandler>();
+            services.AddTransient<IEventHandler<TransactionCreatedEvent>, TransactionEventHandler>();
+            /* End RabbitMQ */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +59,14 @@ namespace AFORO255.MS.TEST.Transaction
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+            ConfigureEventBus(app);
+        }
+
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<TransactionCreatedEvent, TransactionEventHandler>();
         }
     }
 }
