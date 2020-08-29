@@ -8,7 +8,7 @@ using MS.AFORO255.Cross.RabbitMQ.Src.Bus;
 
 namespace AFORO255.MS.TEST.Pay.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PayController : ControllerBase
     {

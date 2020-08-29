@@ -46,8 +46,6 @@ namespace AFORO255.MS.TEST.Security
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthorization();

@@ -6,7 +6,7 @@ using MS.AFORO255.Cross.Jwt.Src;
 
 namespace AFORO255.MS.TEST.Security.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {

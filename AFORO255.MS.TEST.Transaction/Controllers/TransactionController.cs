@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AFORO255.MS.TEST.Transaction.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TransactionController : ControllerBase
     {
@@ -24,19 +24,22 @@ namespace AFORO255.MS.TEST.Transaction.Controllers
             return Ok(await _serviceTransaction.GetAll());
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Model.Transaction transaction)
-        {
-            await _serviceTransaction.Add(transaction);
-            return Ok();
-        }
+        // [HttpPost]
+        // public async Task<IActionResult> Post([FromBody] Model.Transaction transaction)
+        // {
+        //     await _serviceTransaction.Add(transaction);
+        //     return Ok();
+        // }
 
         [HttpGet("{idinvoice}")]
         public async Task<IActionResult> Get(int idinvoice)
         {
+            List<TransactionDto> model = null;
+            
             var result = await _serviceTransaction.GetAll();
-            IEnumerable<TransactionDto> response = result.Where(x => x.IdInvoice == idinvoice).ToList();
-            return Ok(response);
+            model = result.Where(x => x.IdInvoice == idinvoice).ToList();
+            
+            return Ok(model);
         }
     }
 }

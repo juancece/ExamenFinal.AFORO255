@@ -52,8 +52,6 @@ namespace AFORO255.MS.TEST.Transaction
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthorization();

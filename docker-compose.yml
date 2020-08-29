@@ -45,7 +45,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
     container_name: sql-database-test
     build:
-      context: ./Db/sql
+      context: ./Db/sqlsvr
       dockerfile: ./Dockerfile
     restart: always
     ports:
@@ -59,6 +59,10 @@ services:
   mongo:
     image: mongo
     container_name: mongo-database-test
+    build:
+      context: ./Db/mongo
+      dockerfile: ./Dockerfile
+    restart: always
     ports:
     - "27018:27017"
     networks:

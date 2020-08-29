@@ -52,8 +52,6 @@ namespace AFORO255.MS.TEST.Invoice
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthorization();
