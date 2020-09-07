@@ -9,8 +9,8 @@ namespace AFORO255.MS.TEST.Transaction.Repository
 
         public RepositoryTransaction(IConfiguration configuration)
         {
-            var client = new MongoClient(configuration["mongo:cn"]);
-            _database = client.GetDatabase(configuration["mongo:database"]);
+            var client = new MongoClient(configuration["cnmongo"]);
+            _database = client.GetDatabase(configuration["mongodb"]);
         }
 
         public IMongoCollection<Model.Transaction> HistoryTransaction => _database.GetCollection<Model.Transaction>("Transaction");

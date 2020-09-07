@@ -6,6 +6,11 @@
 
     <ItemGroup>
       <PackageReference Include="Ocelot" Version="16.0.1" />
+      <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MS.AFORO255.Cross.Jwt\MS.AFORO255.Cross.Jwt.csproj" />
     </ItemGroup>
 
 
