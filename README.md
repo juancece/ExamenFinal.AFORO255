@@ -35,11 +35,11 @@ Curso MICROSERVICIOS EN NET CORE: Arquitectura para contenedores - AGO 20
     
     - Ejecutar dentro de cada carpeta de microservicios:
     
-    ```sh
+    ```
       $ dotnet publish -c Release --output ./publish
     ```
     - Construir los contenedores del proyecto
     
-    ```sh
+    ```
       $ docker-compose up -d
     ```
