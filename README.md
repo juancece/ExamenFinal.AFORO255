@@ -32,7 +32,9 @@ Curso MICROSERVICIOS EN NET CORE: Arquitectura para contenedores - AGO 20
  
  *Requisitos*:
     - Instalar Docker
+    
     - Ejecutar dentro de cada carpeta de microservicios:
+    
     ```sh
       $ dotnet publish -c Release --output ./publish
     ```
