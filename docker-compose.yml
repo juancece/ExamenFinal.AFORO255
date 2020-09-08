@@ -100,6 +100,69 @@ services:
     networks:
       - aforo255-test
   
+  gateway:
+    container_name: app-gateway
+    build:
+      context: ./AFORO255.MS.TEST.Gateway
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+    - "9000:8080"
+    networks:
+      - aforo255-test
+
+  security:
+    container_name: app-security
+    build:
+      context: ./AFORO255.MS.TEST.Security
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "9001:8080"
+    networks:
+      - aforo255-test
+    depends_on:
+      - sql
+
+  invoice:
+    container_name: app-invoices
+    build:
+      context: ./AFORO255.MS.TEST.Invoice
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+    - "9002:8080"
+    networks:
+      - aforo255-test
+    depends_on:
+      - postgres
+
+  pay:
+    container_name: app-pay
+    build:
+      context: ./AFORO255.MS.TEST.Pay
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "9003:8080"
+    networks:
+      - aforo255-test
+    depends_on:
+      - mysql
+
+  transaction:
+    container_name: app-transaction
+    build:
+      context: ./AFORO255.MS.TEST.Transaction
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "9004:8080"
+    networks:
+      - aforo255-test
+    depends_on:
+      - mongo
+
 networks:
   aforo255-test:
     name: aforo255-test
