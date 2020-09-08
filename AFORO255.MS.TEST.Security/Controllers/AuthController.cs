@@ -28,7 +28,7 @@ namespace AFORO255.MS.TEST.Security.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] AuthRequestDto requestDto)
         {
-            if (!_serviceAccess.Validate(requestDto.username, requestDto.password))
+            if (!_serviceAccess.Validate(requestDto.Username, requestDto.Password))
             {
                 return Unauthorized();
             }

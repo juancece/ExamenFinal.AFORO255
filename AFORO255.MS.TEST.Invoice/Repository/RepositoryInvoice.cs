@@ -20,7 +20,7 @@ namespace AFORO255.MS.TEST.Invoice.Repository
 
         public bool Pay(int idInvoice)
         {
-            Model.Invoice invoice = _contextDatabase.Invoices.Find(idInvoice);
+            var invoice = _contextDatabase.Invoices.Find(idInvoice);
             invoice.State = 1;
             _contextDatabase.Invoices.Update(invoice);
             _contextDatabase.SaveChanges();

@@ -5,7 +5,7 @@ namespace AFORO255.MS.TEST.Transaction.Repository
 {
     public class RepositoryTransaction : IRepositoryTransaction
     {
-        private readonly IMongoDatabase _database = null;
+        private readonly IMongoDatabase _database;
 
         public RepositoryTransaction(IConfiguration configuration)
         {
