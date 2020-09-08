@@ -13,11 +13,11 @@ Curso MICROSERVICIOS EN NET CORE: Arquitectura para contenedores - AGO 20
  
  Fuentes del proyecto en cada una de las carpetas
  
- Scripts de bases de datos:
+ *Scripts de bases de datos*:
     Existen varios archivos sql los cuales se alojan dentro de la capeta **/Db**.
     Los mismos son utilizados durante la ejecucion del docker-compose --build.
  
- Componentes creados:
+ *Componentes creados*:
     
     * Docker network: name: aforo255-test
     * Servicio de configuracion centralizada: config-service-test
@@ -30,9 +30,14 @@ Curso MICROSERVICIOS EN NET CORE: Arquitectura para contenedores - AGO 20
     * Microservicio de transacciones dockerizado: app-transaction
     * Microservicio Gateway: app-gateway
  
- Requisitos:
+ *Requisitos*:
     - Instalar Docker
     - Ejecutar dentro de cada carpeta de microservicios:
-        dotnet publish -c Release --output ./publish
+    ```sh
+      $ dotnet publish -c Release --output ./publish
+    ```
     - Construir los contenedores del proyecto
-        docker-compose up -d
+    
+    ```sh
+      $ docker-compose up -d
+    ```
