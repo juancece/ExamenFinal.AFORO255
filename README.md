@@ -14,8 +14,8 @@ Curso MICROSERVICIOS EN NET CORE: Arquitectura para contenedores - AGO 20
  Fuentes del proyecto en cada una de las carpetas
  
  Scripts de bases de datos:
-    Existen varios archivos sql los cuales se alojan dentro de la capeta /Db.
-    Los mismos son utilizados durante la ejecucion del docker-compose build.
+    Existen varios archivos sql los cuales se alojan dentro de la capeta **/Db**.
+    Los mismos son utilizados durante la ejecucion del docker-compose --build.
  
  Componentes creados:
     
